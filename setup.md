@@ -15,5 +15,14 @@ Asegúrate de tener instalado:
 1. Clonar el repositorio:
 
    ```sh
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/grevy0810/RickAndMortyApp.git
    cd tu_repositorio
+
+2. Instalar dependencias:
+
+   ```sh
+   npm install
+
+   o si prefieres usar Yarn:
+   ```sh
+   yarn install
