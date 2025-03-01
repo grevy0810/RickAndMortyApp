@@ -22,7 +22,9 @@ Asegúrate de tener instalado:
 
    ```sh
    npm install
+   ```
 
    o si prefieres usar Yarn:
    ```sh
    yarn install
+   ```
