@@ -3,15 +3,11 @@
 
 # Características
 
-Búsqueda de personajes con filtros.
-
-Uso de Material UI para la interfaz de usuario.
-
-Paginación para navegar entre los personajes.
-
-Manejo de errores y notificaciones con react-toastify.
-
-Redirección a detalles de personajes.
+- Búsqueda de personajes con filtros.
+- Uso de Material UI para la interfaz de usuario.
+- Paginación para navegar entre los personajes.
+- Manejo de errores y notificaciones con react-toastify.
+- Redirección a detalles de personajes.
 
 # Lo que se facilitó
 
@@ -29,7 +25,7 @@ Problema: Cuando se cambiaba de página, la consulta a la API no se actualizaba 
 
 Solución: Se incluyeron los filtros en la dependencia del useEffect, asegurando que cada cambio en la página o en los filtros desencadenara una nueva consulta a la API.
 
-4. Mantener el estado de los filtros al redireccionar
+2. Mantener el estado de los filtros al redireccionar
 
 Problema: Al seleccionar un personaje, ir a ver la vista detallada y volver; la lista de filtros se reseteaba .
 
