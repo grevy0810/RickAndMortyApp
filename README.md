@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
+# Rick and Morty App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Búsqueda de personajes con filtros.
 
-## Expanding the ESLint configuration
+Uso de Material UI para la interfaz de usuario.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Paginación para navegar entre los personajes.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Manejo de errores y notificaciones con react-toastify.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Redirección a detalles de personajes.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Lo que se facilitó
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Integración con la API de Rick and Morty, ya que proporciona un endpoint bien documentado.
+
+Uso de Material UI para los componentes, lo que permitió una interfaz visualmente atractiva y funcional sin necesidad de diseñar desde cero.
+
+Manejo de estado con React y hooks como useState y useEffect para gestionar los datos y actualizaciones en la interfaz.
+
+# Problemas encontrados y soluciones
+
+1. La paginación no actualizaba correctamente la lista de personajes
+
+Problema: Cuando se cambiaba de página, la consulta a la API no se actualizaba correctamente, ya que no se consideraban los filtros existentes.
+
+Solución: Se incluyeron los filtros en la dependencia del useEffect, asegurando que cada cambio en la página o en los filtros desencadenara una nueva consulta a la API.
+
+4. Mantener el estado de los filtros al redireccionar
+
+Problema: Al seleccionar un personaje, ir a ver la vista detallada y volver; la lista de filtros se reseteaba .
+
+Solución: Se Utilizo useContext para mantener el estado de los filtros de manera global entre los componentes.
+
+
+# Tecnologías utilizadas
+
+React
+
+TypeScript
+
+Axios para las solicitudes HTTP
+
+Material UI para los componentes de la interfaz
+
+React Toastify para las notificaciones
+
+React Router para la navegación
+
+tailwind para estilos css
+
+context para el manejo de estados
+
