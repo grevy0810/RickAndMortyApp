@@ -6,20 +6,22 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 interface CharacterCardProps {
     character: Character
-    attributes: Array<keyof Character>;
+    attributes: { key: keyof Character; label: string }[];
+    cardStyles: string;
+    imageSize: string;
 }
-const CharacterCard = ({character, attributes}: CharacterCardProps) => {
+const CharacterCard = ({character, attributes, cardStyles, imageSize}: CharacterCardProps) => {
     return (
-        <Card key={character.id} className="shadow-lg hover:scale-105 transition-transform" >
+        <Card key={character.id} className={`${cardStyles}`} >
             <Link to={`/character/${character.id}`}>
-                <CardMedia component="img" height="250" image={character.image} alt={character.name} />
+                <CardMedia component="img" height={`${imageSize}`} image={character.image} alt={character.name} />
                 <CardContent className="bg-gray-800 text-white">
                     <Typography variant="h6" component="div">
                     {character.name}
                     </Typography>
-                    {attributes.map((attr, index) => (
-                        <Typography key={index} variant="body2">
-                            {attr}: {String(character[attr])}
+                    {attributes.map(({ key, label }) => (
+                        <Typography key={key} variant="body2">
+                            {key}: {label}
                         </Typography>
                     ))}
                 </CardContent>

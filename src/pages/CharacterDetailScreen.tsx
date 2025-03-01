@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Character } from "../models/Character";
 import axios from "axios";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import CharacterCard from "../components/CharacterCard";
 
 
 const CharacterDetailScreen: React.FC = () => {
@@ -30,17 +31,19 @@ const CharacterDetailScreen: React.FC = () => {
   
     return (
       <div className="flex justify-center p-5">
-        <Card className="max-w-lg shadow-lg">
-          <CardMedia component="img" height="400" image={character.image} alt={character.name} />
-          <CardContent className="bg-gray-800 text-white text-center">
-            <Typography variant="h4">{character.name}</Typography>
-            <Typography>Status: {character.status}</Typography>
-            <Typography>Species: {character.species}</Typography>
-            <Typography>Gender: {character.gender}</Typography>
-            <Typography>Origin: {character.origin.name}</Typography>
-            <Typography>Location: {character.location.name}</Typography>
-          </CardContent>
-        </Card>
+        <CharacterCard
+            character={character}
+            attributes={[
+                { key: "status", label: character.status }, 
+                { key: "species", label: character.species }, 
+                { key: "gender", label: character.gender },
+                { key: "type", label: character.type},
+                { key: "location", label: character.location.name},
+                { key: "origin", label: character.origin.name},
+            ]}
+            cardStyles="max-w-lg shadow-lg"
+            imageSize="450"
+        />
       </div>
     );
   };

@@ -34,7 +34,13 @@ const HomeScreen = () => {
                     <CharacterCard 
                         character={character} 
                         key={index}
-                        attributes={["status", "species", "gender"]}
+                        attributes={[
+                            { key: "status", label: character.status }, 
+                            { key: "species", label: character.species }, 
+                            { key: "gender", label: character.gender }
+                        ]}
+                        cardStyles='shadow-lg hover:scale-105 transition-transform '
+                        imageSize='250'
                     />
                 ))}
             </div>
