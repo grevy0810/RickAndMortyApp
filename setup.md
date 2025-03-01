@@ -30,15 +30,14 @@ Asegúrate de tener instalado:
    ```
 
 3. Ejecución del Proyecto
+   Para iniciar el servidor de desarrollo:
+    ```sh
+    npm run dev
+    ```
 
-Para iniciar el servidor de desarrollo:
- ```sh
-npm run dev
-```
+    O con Yarn:
+    ```sh
+    yarn dev
+    ```
 
-O con Yarn:
- ```sh
- yarn dev
- ```
-
-El proyecto se ejecutará en `http://localhost:3000/`
+    El proyecto se ejecutará en `http://localhost:3000/`
