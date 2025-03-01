@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Character } from "../models/Character";
 import axios from "axios";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import CharacterCard from "../components/CharacterCard";
-
+import { Button } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CharacterDetailScreen: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [character, setCharacter] = useState<Character | null>(null);
-  
+    const navigate = useNavigate();
     useEffect(() => {
       fetchCharacter();
     }, []);
@@ -30,21 +30,32 @@ const CharacterDetailScreen: React.FC = () => {
     }
   
     return (
-      <div className="flex justify-center p-5">
-        <CharacterCard
-            character={character}
-            attributes={[
-                { key: "status", label: character.status }, 
-                { key: "species", label: character.species }, 
-                { key: "gender", label: character.gender },
-                { key: "type", label: character.type},
-                { key: "location", label: character.location.name},
-                { key: "origin", label: character.origin.name},
-            ]}
-            cardStyles="max-w-lg shadow-lg"
-            imageSize="450"
-        />
-      </div>
+        <>
+            <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={() => navigate(-1)} // Regresa a la pantalla anterior
+                startIcon={<ArrowBackIcon />} 
+            >
+                Back
+            </Button>
+        <div className="flex justify-center p-5">
+            
+            <CharacterCard
+                character={character}
+                attributes={[
+                    { key: "status", label: character.status }, 
+                    { key: "species", label: character.species }, 
+                    { key: "gender", label: character.gender },
+                    { key: "type", label: character.type},
+                    { key: "location", label: character.location.name},
+                    { key: "origin", label: character.origin.name},
+                ]}
+                cardStyles="max-w-lg shadow-lg"
+                imageSize="450"
+            />
+        </div>
+        </>
     );
   };
   

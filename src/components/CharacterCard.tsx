@@ -12,10 +12,10 @@ interface CharacterCardProps {
 }
 const CharacterCard = ({character, attributes, cardStyles, imageSize}: CharacterCardProps) => {
     return (
-        <Card key={character.id} className={`${cardStyles}`} >
+        <Card key={character.id} className={`${cardStyles} !bg-gray-800`} >
             <Link to={`/character/${character.id}`}>
                 <CardMedia component="img" height={`${imageSize}`} image={character.image} alt={character.name} />
-                <CardContent className="bg-gray-800 text-white">
+                <CardContent className=" text-white">
                     <Typography variant="h6" component="div">
                     {character.name}
                     </Typography>
