@@ -38,19 +38,12 @@ Solución: Se Utilizo useContext para mantener el estado de los filtros de maner
 
 # Tecnologías utilizadas
 
-React
-
-TypeScript
-
-Axios para las solicitudes HTTP
-
-Material UI para los componentes de la interfaz
-
-React Toastify para las notificaciones
-
-React Router para la navegación
-
-tailwind para estilos css
-
-context para el manejo de estados
+- React
+- TypeScript
+- Axios para las solicitudes HTTP
+- Material UI para los componentes de la interfaz
+- React Toastify para las notificaciones
+- React Router para la navegación
+- tailwind para estilos css
+- context para el manejo de estados
 
